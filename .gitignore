@@ -1,0 +1,76 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vs/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+
+# Rider
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Others
+*.swp
+*.bak
+*.tmp
+*.old
+*.orig
+*.rej
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Azure
+.terraform/
+
+# Test results
+TestResults/
+
+# NCrunch
+.ncrunch*
+*crunch*.local.xml
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# DotCover
+*.dotCover
+
+# Local history for Visual Studio
+.localhistory/
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Backup & Package
+*.nupkg
+*.snupkg
+*.symbols.nupkg
+packages/
+.nuget/
