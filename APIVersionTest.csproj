@@ -4,13 +4,9 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateOpenApiDocuments>true</GenerateOpenApiDocuments>
+    <OpenApiDocumentOutputDirectory>$(OutputPath)openapi</OpenApiDocumentOutputDirectory>
   </PropertyGroup>
-  
-  <PropertyGroup>
-  <GenerateApiDescription>true</GenerateApiDescription>
-  <ApiDescriptionOutputDirectory>$(OutputPath)openapi</ApiDescriptionOutputDirectory>
-</PropertyGroup>
-
 
   <ItemGroup>
     <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0" />
@@ -20,6 +16,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.3" />
   </ItemGroup>
 
 </Project>

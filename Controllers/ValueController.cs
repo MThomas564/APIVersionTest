@@ -4,13 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace APIVersionTest.Controllers
 {
     [ApiController]
-    [Route("api/v{version:apiVersion}/[controller]/{action}")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiVersion("1")]
     [ApiVersion("2")]
     public class ValueController : ControllerBase
     {
         // GET api/v1/value/getv1
-        [HttpGet]
+        [HttpGet("getv1")]
         [MapToApiVersion("1")]
         public IActionResult GetV1()
         {
@@ -18,7 +18,7 @@ namespace APIVersionTest.Controllers
         }
 
         // GET api/v2/value/getv2
-        [HttpGet]
+        [HttpGet("getv2")]
         [MapToApiVersion("2")]
         public IActionResult GetV2()
         {
@@ -26,11 +26,18 @@ namespace APIVersionTest.Controllers
         }
 
         // GET api/v2/value/get
-        [HttpGet]
+        [HttpGet("get")]
         [MapToApiVersion("2")]
         public IActionResult Get()
         {
             return Ok("Value from API Version 2 (default)");
+        }
+
+        [HttpGet("coffeevalue")]
+        [MapToApiVersion("2")]
+        public IActionResult CoffeeValue()
+        {
+            return Ok("I'm a coffee lover from API Version 2");
         }
     }
 }

@@ -34,6 +34,18 @@ public class OpenAPIPathTransform : IOpenApiDocumentTransformer
         {
             document.Info.Version = context.DocumentName;
         }
+
+        // Set the servers property per version
+        document.Servers.Clear();
+        if (context.DocumentName == "v1")
+        {
+            document.Servers.Add(new OpenApiServer { Url = "/api/v1" });
+        }
+        else if (context.DocumentName == "v2")
+        {
+            document.Servers.Add(new OpenApiServer { Url = "/api/v2" });
+        }
+
         return Task.CompletedTask;
     }
 }

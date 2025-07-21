@@ -1,5 +1,4 @@
 using Asp.Versioning;
-using Microsoft.AspNetCore.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,10 +29,6 @@ builder.Services.AddOpenApi("v2", options =>
     options.AddDocumentTransformer<OpenAPIPathTransform>();
 });
 
-// // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-// builder.Services.AddOpenApi("1");
-// builder.Services.AddOpenApi("2");
-
 
 var app = builder.Build();
 
@@ -41,6 +36,13 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/openapi/v1.json", "API Version 1");
+        options.SwaggerEndpoint("/openapi/v2.json", "API Version 2");
+        options.RoutePrefix = string.Empty; // Serve Swagger at the app's root
+    });
 }
 
 app.UseHttpsRedirection();
