@@ -29,6 +29,12 @@ public class OpenAPIPathTransform : IOpenApiDocumentTransformer
 
         document.Paths = newPaths;
 
+        document.Info.Contact = new OpenApiContact
+        {
+            Name = "API Support",
+            Email = "test@test.com"
+        };
+
         // Set the OpenAPI info.version property based on the document name
         if (!string.IsNullOrEmpty(context.DocumentName))
         {
@@ -37,14 +43,7 @@ public class OpenAPIPathTransform : IOpenApiDocumentTransformer
 
         // Set the servers property per version
         document.Servers.Clear();
-        if (context.DocumentName == "v1")
-        {
-            document.Servers.Add(new OpenApiServer { Url = "/api/v1" });
-        }
-        else if (context.DocumentName == "v2")
-        {
-            document.Servers.Add(new OpenApiServer { Url = "/api/v2" });
-        }
+        document.Servers.Add(new OpenApiServer { Url = $"/api/{context.DocumentName}" });
 
         return Task.CompletedTask;
     }

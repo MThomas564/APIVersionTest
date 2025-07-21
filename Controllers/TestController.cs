@@ -5,12 +5,16 @@ namespace APIVersionTest.Controllers
 {
     [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]
-    [ApiVersion("2")]
+    [ApiVersion(ApiVersions.v2)]
     public class TestController : ControllerBase
     {
-        // GET api/v1/value/getv1
+        [ProducesResponseType(typeof(string), 200)]
+        [Produces("application/json")]
+        [Tags("Coffee", "Version2")]
+        [ApiExplorerSettings(GroupName = "v2")]
+        [EndpointDescription("Gets a message indicating the user's preference for coffee, specific to API Version 2.")]
         [HttpGet]
-        [MapToApiVersion("2")]
+        [MapToApiVersion(ApiVersions.v2)]
         public IActionResult Coffee()
         {
             return Ok("I'm a coffee lover from API Version 2");
