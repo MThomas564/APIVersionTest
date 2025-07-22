@@ -32,12 +32,5 @@ namespace APIVersionTest.Controllers
         {
             return Ok("Value from API Version 2 (default)");
         }
-
-        [HttpGet("coffeevalue")]
-        [MapToApiVersion(ApiVersions.v2)]
-        public IActionResult CoffeeValue()
-        {
-            return Ok("I'm a coffee lover from API Version 2");
-        }
     }
 }
