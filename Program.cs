@@ -1,4 +1,7 @@
+using System.Reflection;
+using System.Reflection.Metadata;
 using Asp.Versioning;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,7 +31,6 @@ builder.Services.AddOpenApi("v2", options =>
 {
     options.AddDocumentTransformer<OpenAPIPathTransform>();
 });
-
 
 var app = builder.Build();
 
